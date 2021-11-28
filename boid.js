@@ -119,11 +119,14 @@ class Boid {
   }
 
   change(forms){
+    let vol = mic.getLevel();
+    let h = map(vol, 0, 1, 1, 200);
+
     if (forms == "squares") {
       square(1,1,10);
     }
     else if (forms == "circles"){
-      circle(1,1,10);
+      circle(1,1,10+h);
     }
     else {
 

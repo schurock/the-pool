@@ -1,9 +1,10 @@
+
 const flock = [];
 const flock2 = [];
 const flock3 = [];
 const flock4 = [];
 
-
+let mic;
 let alignSlider, cohesionSlider, separationSlider;
 
 function setup() {
@@ -11,6 +12,10 @@ function setup() {
   alignSlider = createSlider(0, 2, 1, 0.1);
   cohesionSlider = createSlider(0, 2, 1, 0.1);
   separationSlider = createSlider(0, 2, 1, 0.1);
+
+  mic = new p5.AudioIn();
+  mic.start();
+
   for(let i =0; i<20; i++){
     flock.push(new Boid());
   }
@@ -27,6 +32,12 @@ function setup() {
 
 function draw() {
   background(51);
+
+  let vol = mic.getLevel();
+  //let h = map(vol, 0, 1, height, 0);
+  //ellipse(width / 2, h - 25, 50, 50);
+
+  //if vol
 
   for (let boid of flock){
     boid.edges();
