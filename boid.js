@@ -121,6 +121,7 @@ class Boid {
   change(forms){
     let vol = mic.getLevel();
     let h = map(vol, 0, 1, 1, 200);
+    console.log(vol);
 
     if (forms == "squares") {
       square(1,1,10);

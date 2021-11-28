@@ -34,10 +34,9 @@ function draw() {
   background(51);
 
   let vol = mic.getLevel();
-  //let h = map(vol, 0, 1, height, 0);
-  //ellipse(width / 2, h - 25, 50, 50);
-
-  //if vol
+  //let y = height - vol * height;
+  //ellipse(width/2, y, 10, 10);
+  //console.log(vol);
 
   for (let boid of flock){
     boid.edges();
