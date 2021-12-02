@@ -7,6 +7,8 @@ class Boid {
     this.maxForce = 1;
     this.maxSpeed = 5;
     this.r = 4;
+    this.angle = 0;
+
   }
 
   edges(){
@@ -119,12 +121,15 @@ class Boid {
   }
 
   change(forms){
+
     let vol = mic.getLevel();
     let h = map(vol, 0, 1, 1, 200);
     console.log(vol);
 
     if (forms == "squares") {
-      square(1,1,10);
+
+      rect(1,1,10, map(sin(this.angle), -1,1,0,15));
+      this.angle +=0.1;
     }
     else if (forms == "circles"){
       circle(1,1,10+h);
@@ -138,10 +143,19 @@ class Boid {
       vertex(this.r, this.r);
       vertex(this.r, this.r);
       endShape(CLOSE);
+
+      beginShape();
+      vertex(0, -this.r * 2);
+      vertex(-this.r, this.r * 2);
+      vertex(this.r, this.r * 2);
+      vertex(this.r, this.r);
+      vertex(this.r, this.r);
+      endShape(CLOSE);
+
     }
   }
 
-  show(red,green,blue,forms){
+  show(red,green,blue,tail,forms){
     //strokeWeight(10);
     //stroke(random(1,255),random(1,255),random(1,255));
     //point(this.position.x, this.position.y)
@@ -152,6 +166,9 @@ class Boid {
     translate(this.position.x, this.position.y);
     rotate(theta);
     this.change(forms);
+  //  if (tail == true){
+  //    circle(this.position.x, this.position.y,10);
+  //  }
     pop();
   }
 }
