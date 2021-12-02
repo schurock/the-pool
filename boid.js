@@ -8,6 +8,7 @@ class Boid {
     this.maxSpeed = 5;
     this.r = 4;
     this.angle = 0;
+    this.size = random(2,50);
 
   }
 
@@ -132,7 +133,7 @@ class Boid {
       this.angle +=0.1;
     }
     else if (forms == "circles"){
-      circle(1,1,10+h);
+      circle(1,1,this.size +h);
     }
     else {
 

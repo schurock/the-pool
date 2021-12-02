@@ -16,16 +16,16 @@ function setup() {
   mic = new p5.AudioIn();
   mic.start();
 
-  for(let i =0; i<30; i++){
+  for(let i =0; i<0; i++){
     flock.push(new Boid());
   }
-  for(let i =0; i<30; i++){
+  for(let i =0; i<0; i++){
     flock2.push(new Boid());
   }
-  for(let i =0; i<30; i++){
+  for(let i =0; i<100; i++){
     flock3.push(new Boid());
   }
-  for(let i =0; i<30; i++){
+  for(let i =0; i<0; i++){
     flock4.push(new Boid());
   }
 }
